@@ -1,0 +1,66 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: rgb(31, 38, 82);
+  color: white;
+}
+
+/* Increase the font size of the heading */
+.header h2 {
+  font-size: 40px;
+  opacity: 1;
+}
+
+button {
+  background-color: #ffffff50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0px;
+  border: 2px solid #ddd;
+  cursor: pointer;
+  width: 100%;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+input {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0px;
+  display: inline-block;
+  border: none;
+  outline: none;
+  box-sizing: border-box;
+  color: white;
+  background-color: #ffffff36;
+}
+
+.invalid-movie {
+  border: 1px solid red;
+}
+
+::placeholder {
+  color: white;
+  opacity: 0.5;
+}
+
+select {
+  width: 100%;
+  padding: 4px 20px;
+  margin: 8px 0px;
+  display: inline-block;
+  border: none;
+  outline: none;
+  box-sizing: border-box;
+  /* color: white;
+  background-color: #ffffff36; */
+}
+
+.inactive {
+  display: none;
+}

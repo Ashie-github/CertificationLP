@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./widgetstyle.css" />
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://lpcdn.lpsnmedia.net/webagent/client-SDK.min.js"></script>
+    <title>Movie Search</title>
+  </head>
+  <body>
+    <div id="search-box">
+      <h2>Search by Title</h2>
+      <input
+        class="search"
+        id ="input-movie"
+        type="text"
+        placeholder="Title of the movie/series/episode"
+        autocomplete="off"
+      />
+      <input
+        class="search"
+        id ="input-year"
+        type="text"
+        placeholder="Year of the release"
+        autocomplete="off"
+      />
+      <select name="type" id="select-type">
+        <option value="movie">movie</option>
+        <option value="series">series</option>
+        <option value="episode">episode</option>
+      </select>
+      </br>
+      </br>
+      </br>
+
+      <p id="message">Click to search:</p>
+      <button type="button" id="search-btn"><b>Search</b></button>
+    </div>
+    <div  class="inactive" id="result-box">
+      <h1 id="result-title"></h1>
+      <h2 id="result-year"></h2>
+      <img id="result-img" src="" width="100%">
+      <p id="result-description"></p>
+      <button type="button" id="back-btn"><b>Go back to search</b></button>
+
+    </div>
+    <script src="./widget.js"></script>
+  </body>
+</html>
