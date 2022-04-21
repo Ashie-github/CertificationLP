@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- BEGIN LivePerson Monitor. -->
+    <script type="text/javascript">window.lpTag=window.lpTag||{},'undefined'==typeof window.lpTag._tagCount?(window.lpTag={wl:lpTag.wl||null,scp:lpTag.scp||null,site:'86823762'||'',section:lpTag.section||'',tagletSection:lpTag.tagletSection||null,autoStart:lpTag.autoStart!==!1,ovr:lpTag.ovr||{},_v:'1.10.0',_tagCount:1,protocol:'https:',events:{bind:function(t,e,i){lpTag.defer(function(){lpTag.events.bind(t,e,i)},0)},trigger:function(t,e,i){lpTag.defer(function(){lpTag.events.trigger(t,e,i)},1)}},defer:function(t,e){0===e?(this._defB=this._defB||[],this._defB.push(t)):1===e?(this._defT=this._defT||[],this._defT.push(t)):(this._defL=this._defL||[],this._defL.push(t))},load:function(t,e,i){var n=this;setTimeout(function(){n._load(t,e,i)},0)},_load:function(t,e,i){var n=t;t||(n=this.protocol+'//'+(this.ovr&&this.ovr.domain?this.ovr.domain:'lptag.liveperson.net')+'/tag/tag.js?site='+this.site);var o=document.createElement('script');o.setAttribute('charset',e?e:'UTF-8'),i&&o.setAttribute('id',i),o.setAttribute('src',n),document.getElementsByTagName('head').item(0).appendChild(o)},init:function(){this._timing=this._timing||{},this._timing.start=(new Date).getTime();var t=this;window.attachEvent?window.attachEvent('onload',function(){t._domReady('domReady')}):(window.addEventListener('DOMContentLoaded',function(){t._domReady('contReady')},!1),window.addEventListener('load',function(){t._domReady('domReady')},!1)),'undefined'===typeof window._lptStop&&this.load()},start:function(){this.autoStart=!0},_domReady:function(t){this.isDom||(this.isDom=!0,this.events.trigger('LPT','DOM_READY',{t:t})),this._timing[t]=(new Date).getTime()},vars:lpTag.vars||[],dbs:lpTag.dbs||[],ctn:lpTag.ctn||[],sdes:lpTag.sdes||[],hooks:lpTag.hooks||[],identities:lpTag.identities||[],ev:lpTag.ev||[]},lpTag.init()):window.lpTag._tagCount+=1;</script>
+    <!-- END LivePerson Monitor. -->
+
+    <title>Page Title</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+  </head>
+  <body>
+    <div class="header">
+      <h1>LP-Brand</h1>
+      <h2>We create your best jewellery</h2>
+    </div>
+
+    <div class="navbar">
+      <a href="#"><i class="fa fa-fw fa-search"></i> Search</a>
+      <a href="#"><i class="fa fa-fw fa-envelope"></i> Contact</a>
+      <a href="unauthenticated.html"><i class="fa fa-fw fa-user"></i> Logout</a>
+      <div class="dropdown right">
+        <a href="#" class="dropbtn"
+          ><i class="fa fa-fw fa-shopping-basket"></i> Cart</a
+        >
+        <div class="dropdown-content right-dropdown-content">
+          <a href="#">Earrings Stars 200$</a>
+          <a href="#">Necklace Moon 300$</a>
+          <a href="#">Ring Amethyst 500$</a>
+          <a href="#">TOTAL 1000$</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="side">
+        <h3>Our offer</h3>
+        <p>Best quality gold jewellery</p>
+        <div class="fakeimg" style="height: 60px">Earrings</div>
+        <br />
+        <div class="fakeimg" style="height: 60px">Necklaces</div>
+        <br />
+        <div class="fakeimg" style="height: 60px">Rings</div>
+      </div>
+      <div class="main">
+        <h2>Winter Sale!</h2>
+        <h5>Winter inspired jewellery collection, Dec 7, 2021</h5>
+        <div class="fakeimg" style="height: 200px">Image</div>
+        <p>
+          Check out our offer for the newest collection and get one item for free!
+        </p>
+        <br />
+        <h2>Sales up to 50%!</h2>
+        <h5>Speciall offer for Black Friday, Nov 26, 2021</h5>
+        <div class="fakeimg" style="height: 200px">Image</div>
+        <p>
+          Biggest sale of the year!
+        </p>
+      </div>
+    </div>
+
+    <div class="footer">
+      <p>
+        Contact us: </br>Phone: 1234567889 </br>Email: lpbrand@email.com </br>
+      </p>
+    </div>
+
+    <script src="./start.js"></script>
+    <script>
+      lpTag.identities = [];
+      lpTag.identities.push(identityFn);
+      function identityFn(callback) {
+        callback({
+          iss: "https://jwt.io/",
+          acr: "loa1",
+          sub: "+972-3-5555-555"
+        })
+        console.log('identityFn called');
+      }
+
+      function lpGetAuthenticationToken(callback){
+        console.log("LP asked for idToken or auth code in Code Flow");
+        const jwt = `eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJodHRwczovL2p3dC5pby8iLCJhY3IiOiJsb2ExIiwic3ViIjoiKzk3Mi0zLTU1NTUtNTU1IiwiYXpwIjoiNzU1ODhlMTgtMDIxMy00ZTMzLTgxNzQtODgzYWNhYzdlM2M0IiwiYXVkIjoiYWNjOnFhODY4MjM3NjIiLCJzY29wZSI6Im1zZy5jb25zdW1lciIsImdpdmVuX25hbWUiOiJKb2FubmEiLCJleHAiOjE2NTc3MDU1MDY0NDAsImlhdCI6MTY0OTkyOTUwNjQ0MH0.G6slXBJOGoQjAzrMOHjUH_hvXLWmyddig0NrGV9By-RQA1LAA5vBpS1sG-MradqkAuastbgrAebfHUnAmF8jlG8ObdgDe_Mwe7cRFGShDEq7s2jqUlBA2b16Wi1NepRF-nAYcM9c95RvodGx4HSWKtUj1gkswsCPAkfQmnpLXiCwyGBm3liJ7HJMCrPmMePZ0CRxTz_1S3thuzNx_9jhZKzh4MLjxsaxZnafEsywWBo6pzppSC6p-YRBaqgTxU14ZEezuZxsJlJsagVDiA8J7vuJmRctsbXTMcT3TbmKpPUxZQf7s_-JmfRKv3H6WblXJPOJxoUnYIiGL96qLKeDtw`
+        callback(jwt)
+        console.log('JWT passed to callback');
+      }
+    </script>
+
+  </body>
+</html>
