@@ -1,6 +1,11 @@
 "use strict";
 lpTag.agentSDK.init({});
 
+let data;
+let visitorsLine = "";
+let movieMentioned = false;
+let seriesMentioned = false;
+
 ////////////////////////////////////////////////////////////////////////////
 // Elements
 const inputTitle = document.getElementById("input-movie");
@@ -18,7 +23,50 @@ const yearResult = document.getElementById("result-year");
 const imgResult = document.getElementById("result-img");
 const descResult = document.getElementById("result-description");
 
-let data;
+////////////////////////////////////////////////////////////////////////////
+// Showing API result
+const showApiResult = function (type, title, year) {
+  console.log("Inside of showApiResult function");
+
+  const myKey = "af43f787";
+  const url = year
+    ? `/?type=${encodeURIComponent(type)}&t=${encodeURIComponent(
+        title
+      )}&y=${encodeURIComponent(year)}&apikey=${myKey}&`
+    : `/?type=${encodeURIComponent(type)}&t=${encodeURIComponent(
+        title
+      )}&apikey=${myKey}&`;
+
+  axios({
+    baseURL: "https://www.omdbapi.com/",
+    url,
+    method: "post",
+    responseType: "json",
+  }).then(function (res) {
+    data = res.data;
+    console.log(data);
+    if ("Error" in data) {
+      descResult.innerHTML = data.Error;
+    } else {
+      titleResult.innerHTML = data.Title;
+      yearResult.innerHTML = data.Year;
+      imgResult.src = data.Poster;
+      descResult.innerHTML = `<b>Genre</b>: ${data.Genre}</br>
+      <b>Country</b>: ${data.Country}</br>
+      <b>Language</b>: ${data.Language}</br>
+      <b>Director</b>: ${data.Director}</br>
+      <b>Writer</b>: ${data.Writer}</br>
+      <b>Actors</b>: ${data.Actors}</br>
+      <b>Awards</b>: ${data.Awards}</br>
+      </br>${data.Plot}`;
+    }
+  });
+
+  // show Result box
+  boxSearch.classList.add("inactive");
+  boxResult.classList.remove("inactive");
+};
+
 ////////////////////////////////////////////////////////////////////////////
 // Buttons
 btnSearch.addEventListener("click", function (e) {
@@ -27,42 +75,7 @@ btnSearch.addEventListener("click", function (e) {
     message.innerHTML = "Enter a valid title!";
     inputTitle.classList.add("invalid-movie");
   } else {
-    const myKey = "af43f787";
-    const url = `/?type=${encodeURIComponent(
-      selectType.value
-    )}&t=${encodeURIComponent(inputTitle.value)}&y=${encodeURIComponent(
-      inputYear.value
-    )}&apikey=${myKey}&`;
-
-    // API
-    axios({
-      baseURL: "https://www.omdbapi.com/",
-      url,
-      method: "post",
-      responseType: "json",
-    }).then(function (res) {
-      data = res.data;
-      console.log(data);
-      if ("Error" in data) {
-        descResult.innerHTML = data.Error;
-      } else {
-        titleResult.innerHTML = data.Title;
-        yearResult.innerHTML = data.Year;
-        imgResult.src = data.Poster;
-        descResult.innerHTML = `<b>Genre</b>: ${data.Genre}</br>
-        <b>Country</b>: ${data.Country}</br>
-        <b>Language</b>: ${data.Language}</br>
-        <b>Director</b>: ${data.Director}</br>
-        <b>Writer</b>: ${data.Writer}</br>
-        <b>Actors</b>: ${data.Actors}</br>
-        <b>Awards</b>: ${data.Awards}</br>
-        </br>${data.Plot}`;
-      }
-    });
-
-    // show Result box
-    boxSearch.classList.add("inactive");
-    boxResult.classList.remove("inactive");
+    showApiResult(selectType.value, inputTitle.value, inputYear.value);
   }
 });
 
@@ -91,7 +104,23 @@ const updateCallback = function (data) {
   var newLine = data.newValue;
   console.log("nep line is", newLine);
   if (newLine[0].by == "Visitor") {
-    console.log("new Visitor's line value", newLine[0].text);
+    visitorsLine = newLine[0].text;
+    console.log("new Visitor's line value", visitorsLine);
+    if (movieMentioned) {
+    }
+
+    // setting up context for the next message
+    //(nex msg will be the title of the movie or a title of a series?)
+    if (visitorsLine.toLowerCase().includes("movie")) {
+      movieMentioned = true;
+      seriesMentioned = false;
+    } else if (visitorsLine.toLowerCase().includes("series")) {
+      movieMentioned = false;
+      seriesMentioned = true;
+    } else {
+      movieMentioned = false;
+      seriesMentioned = false;
+    }
   }
 };
 
