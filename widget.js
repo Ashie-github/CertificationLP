@@ -120,9 +120,11 @@ const updateCallback = function (data) {
     if (visitorsLine.toLowerCase().includes("movie")) {
       movieMentioned = true;
       seriesMentioned = false;
+      console.log("Movie mentioned!");
     } else if (visitorsLine.toLowerCase().includes("series")) {
       movieMentioned = false;
       seriesMentioned = true;
+      console.log("Series mentioned!");
     } else {
       movieMentioned = false;
       seriesMentioned = false;
