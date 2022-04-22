@@ -27,17 +27,6 @@ btnSearch.addEventListener("click", function (e) {
     message.innerHTML = "Enter a valid title!";
     inputTitle.classList.add("invalid-movie");
   } else {
-    // callApi(inputTitle.value, selectType.value, inputYear.value);
-    // console.log("AFTER CALLING FUNCTION");
-    // console.log(data);
-
-    // //
-    // titleResult.innerHTML = "Dune";
-    // yearResult.innerHTML = "2021";
-    // imgResult.src =
-    //   "https://m.media-amazon.com/images/M/MV5BN2FjNmEyNWMtYzM0ZS00NjIyLTg5YzYtYThlMGVjNzE1OGViXkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_SX300.jpg";
-    // descResult.innerHTML =
-    //   "A noble family becomes embroiled in a war for control over the galaxy's most valuable asset while its heir becomes troubled by visions of a dark future.";
     const myKey = "af43f787";
     const url = `/?type=${encodeURIComponent(
       selectType.value
@@ -45,6 +34,7 @@ btnSearch.addEventListener("click", function (e) {
       inputYear.value
     )}&apikey=${myKey}&`;
 
+    // API
     axios({
       baseURL: "https://www.omdbapi.com/",
       url,
@@ -96,22 +86,21 @@ btnBack.addEventListener("click", function (e) {
 });
 
 ////////////////////////////////////////////////////////////////////////////
-// // API
-// async function callApi(title, type, year) {
-//   const myKey = "af43f787";
-//   const url = `/?type=${encodeURIComponent(type)}&t=${encodeURIComponent(
-//     title
-//   )}&y=${encodeURIComponent(year)}&apikey=${myKey}&`;
+// SDK
+const updateCallback = function (data) {
+  var newLine = data.newValue;
+  console.log("nep line is", newLine);
+  if (newLine[0].by == "Visitor") {
+    console.log("new Visitor's line value", newLine[0].text);
+  }
+};
 
-//   await axios({
-//     baseURL: "http://www.omdbapi.com/",
-//     url,
-//     method: "post",
-//     responseType: "json",
-//   }).then(function (res) {
-//     data = res.data;
-//     console.log("IN FUNCTION");
-//     console.log(data);
-//   });
-//   return await data;
-// }
+const notifyWhenDone = function (err) {
+  if (err) {
+    console.log(err);
+  }
+  console.log("set the value");
+};
+
+const pathToData = "chatTranscript.lines";
+lpTag.agentSDK.bind(pathToData, updateCallback, notifyWhenDone);
