@@ -106,11 +106,17 @@ const updateCallback = function (data) {
   if (newLine[0].by == "Visitor") {
     visitorsLine = newLine[0].text;
     console.log("new Visitor's line value", visitorsLine);
+
+    // calling API when previously visitor mentioned a movie or a series
     if (movieMentioned) {
+      showApiResult("movie", visitorsLine);
+    }
+    if (seriesMentioned) {
+      showApiResult("series", visitorsLine);
     }
 
     // setting up context for the next message
-    //(nex msg will be the title of the movie or a title of a series?)
+    // (nex msg will be the title of the movie or a title of a series?)
     if (visitorsLine.toLowerCase().includes("movie")) {
       movieMentioned = true;
       seriesMentioned = false;
