@@ -76,11 +76,13 @@
       lpTag.identities.push(identityFn);
       function identityFn(callback) {
         callback({
-          iss: "https://jwt.io/",
-          acr: "loa1",
-          sub: "+972-3-5555-555",
-          exp: 1657705506440,
-          iat: 1649929506440
+        callback({
+          "iss": "https://jwt.io/",
+          "acr": "loa1",
+          "sub": "+972-3-5555-555",
+          "exp": 1657705506440,
+          "iat": 1649929506440
+        })
         })
         console.log('identityFn called');
       }
