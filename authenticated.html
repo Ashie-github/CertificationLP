@@ -78,15 +78,15 @@
           "iss": "https://jwt.io",
           "acr": "loa1",
           "sub": "1234567890",
-          "exp": 1657705506440,
-          "iat": 1649929506440
+          "exp": 2034971930,
+          "iat": 1471899942
         })
         console.log('identityFn called');
       }
 
       function lpGetAuthenticationToken(callback){
         console.log("LP asked for idToken or auth code in Code Flow");
-        var jwt = "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJodHRwczovL2p3dC5pbyIsImFjciI6ImxvYTEiLCJzdWIiOiIxMjM0NTY3ODkwIiwiZXhwIjoxNjU3NzA1NTA2NDQwLCJpYXQiOjE2NDk5Mjk1MDY0NDB9.K4pjec0CFQuK-5PBKb2ogiCZ_YSi6QvoVUbVJgSxS_NPd_qtVQrBUcxOAw56uugMzgcd5XdyTphjea0s3fn8CmesqazOqPVqZTtCXhR5ooOL77LbzBWb7skRHS9eWZpYt-PGRuDp6a3LUQwPRCCi84VM7JTIejoBySkeslnNWZOMDrzHwkorR_E4TVbfCZxaLpRY-myclBaO5iI4Feh1AnvySEZDC5IeE9L6z0Qy8stB0zp23FsXr-dPtTVAUMU2zRLhuZoqm-fmjN-zFcdhQC-xV5rEixL9grKEEZhgeMscgDqSJ35qHNeGdnM9D3OMvO68sN0G67VrgN0oz-5KLg"
+        var jwt = "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJodHRwczovL2p3dC5pbyIsImFjciI6ImxvYTEiLCJzdWIiOiIxMjM0NTY3ODkwIiwiZXhwIjoyMDM0OTcxOTMwLCJpYXQiOjE0NzE4OTk5NDJ9.uBSZVIBmRmnqzvbFSbbBbmNwu8QLKEVuLccYCEDfiXsZzNKj1f7A6RzrNw6XPG1wrPVNsJEWddWrYYbFVOwzg_a0wWO3TcfIviOrSB5HNuYI3qSV44Lhs-99UfBtgwT-B8g-MwkpOYnhHtwji3BvsYYdlL8I64kPq-wrdraA0cCmFxKb8XIGFRN8NHu5Jm_El_FYOeSzImfxozFJTI6IJjOcJ4iWddUTbqNlmAa5sRe9GochLveebt97XOXC0XlsUU2UiZ4QqO9c-_04YRDeKsVlOVV4F_ZNTJAsCUdzi0ky1f-kkNp43MGI6B3BL9H9aDoLLbMfIE1TyD9cELKI3g"
         callback(jwt)
         console.log('JWT passed to callback');
       }
