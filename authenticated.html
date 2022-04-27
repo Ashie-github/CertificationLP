@@ -75,7 +75,7 @@
       lpTag.identities.push(identityFn);
       function identityFn(callback) {
         callback({
-          "iss": "https://jwt.io/",
+          "iss": "https://jwt.io",
           "acr": "loa1",
           "sub": "1234567890",
           "exp": 1657705506440,
@@ -86,7 +86,7 @@
 
       function lpGetAuthenticationToken(callback){
         console.log("LP asked for idToken or auth code in Code Flow");
-        var jwt = "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJodHRwczovL2p3dC5pby8iLCJhY3IiOiJsb2ExIiwic3ViIjoiMTIzNDU2Nzg5MCIsImV4cCI6MTY1NzcwNTUwNjQ0MCwiaWF0IjoxNjQ5OTI5NTA2NDQwfQ.ChkgSKUVe3gx2pJgA6lR3Sh37_bgqjI8CUGOIXOxqLNfknM0I-Ujp2vQ8wSix6jor0jm52QgEqMc7DTfDZWrCCoxu7AJx-8XUiuzGmnr9gcxlxStygOCB48mPG_UIIkLBzdNZqAbBg_Nh7-b8afYzU2N6m-wNg4E0Af6JvOfrXfZdqmSNSogmJCKTwURiHxGI3Rc-LEVWschsjC-tq2NGyzIvCF5mn9C8YdQdaLG0RJ0BPl1sJ6u70Or4hTxgRFJy6L7A5-jm3-7hSAcF-BB88WW_Tg8QJkg_G8LeCan94Z4whPXeVHTqZ8hCIBCBMQyPv_tKSHQhSFY5HG-kmpdPQ"
+        var jwt = "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJodHRwczovL2p3dC5pbyIsImFjciI6ImxvYTEiLCJzdWIiOiIxMjM0NTY3ODkwIiwiZXhwIjoxNjU3NzA1NTA2NDQwLCJpYXQiOjE2NDk5Mjk1MDY0NDB9.K4pjec0CFQuK-5PBKb2ogiCZ_YSi6QvoVUbVJgSxS_NPd_qtVQrBUcxOAw56uugMzgcd5XdyTphjea0s3fn8CmesqazOqPVqZTtCXhR5ooOL77LbzBWb7skRHS9eWZpYt-PGRuDp6a3LUQwPRCCi84VM7JTIejoBySkeslnNWZOMDrzHwkorR_E4TVbfCZxaLpRY-myclBaO5iI4Feh1AnvySEZDC5IeE9L6z0Qy8stB0zp23FsXr-dPtTVAUMU2zRLhuZoqm-fmjN-zFcdhQC-xV5rEixL9grKEEZhgeMscgDqSJ35qHNeGdnM9D3OMvO68sN0G67VrgN0oz-5KLg"
         callback(jwt)
         console.log('JWT passed to callback');
       }
