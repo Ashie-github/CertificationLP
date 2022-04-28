@@ -72,46 +72,60 @@
 
     <script src="./start.js"></script>
     <script>
+      // Authentication
       lpTag.identities.push(identityFn);
       function identityFn(callback) {
         callback({
-          "iss": "https://jwt.io",
-          "acr": "loa1",
-          "sub": "1234567890",
-          "exp": 2034971930,
-          "iat": 1471899942
-        })
-        console.log('identityFn called');
+          iss: "https://jwt.io",
+          acr: "loa1",
+          sub: "1234567890",
+          exp: 2034971930,
+          iat: 1471899942,
+        });
+        console.log("identityFn called");
       }
 
-      function lpGetAuthenticationToken(callback){
+      function lpGetAuthenticationToken(callback) {
         console.log("LP asked for idToken or auth code in Code Flow");
-        var jwt = "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJodHRwczovL2p3dC5pbyIsImFjciI6ImxvYTEiLCJzdWIiOiIxMjM0NTY3ODkwIiwiZXhwIjoyMDM0OTcxOTMwLCJpYXQiOjE0NzE4OTk5NDJ9.uBSZVIBmRmnqzvbFSbbBbmNwu8QLKEVuLccYCEDfiXsZzNKj1f7A6RzrNw6XPG1wrPVNsJEWddWrYYbFVOwzg_a0wWO3TcfIviOrSB5HNuYI3qSV44Lhs-99UfBtgwT-B8g-MwkpOYnhHtwji3BvsYYdlL8I64kPq-wrdraA0cCmFxKb8XIGFRN8NHu5Jm_El_FYOeSzImfxozFJTI6IJjOcJ4iWddUTbqNlmAa5sRe9GochLveebt97XOXC0XlsUU2UiZ4QqO9c-_04YRDeKsVlOVV4F_ZNTJAsCUdzi0ky1f-kkNp43MGI6B3BL9H9aDoLLbMfIE1TyD9cELKI3g"
-        callback(jwt)
-        console.log('JWT passed to callback');
+        var jwt =
+          "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJodHRwczovL2p3dC5pbyIsImFjciI6ImxvYTEiLCJzdWIiOiIxMjM0NTY3ODkwIiwiZXhwIjoyMDM0OTcxOTMwLCJpYXQiOjE0NzE4OTk5NDJ9.uBSZVIBmRmnqzvbFSbbBbmNwu8QLKEVuLccYCEDfiXsZzNKj1f7A6RzrNw6XPG1wrPVNsJEWddWrYYbFVOwzg_a0wWO3TcfIviOrSB5HNuYI3qSV44Lhs-99UfBtgwT-B8g-MwkpOYnhHtwji3BvsYYdlL8I64kPq-wrdraA0cCmFxKb8XIGFRN8NHu5Jm_El_FYOeSzImfxozFJTI6IJjOcJ4iWddUTbqNlmAa5sRe9GochLveebt97XOXC0XlsUU2UiZ4QqO9c-_04YRDeKsVlOVV4F_ZNTJAsCUdzi0ky1f-kkNp43MGI6B3BL9H9aDoLLbMfIE1TyD9cELKI3g";
+        callback(jwt);
+        console.log("JWT passed to callback");
       }
+
+      // SDEs
+      lpTag.sdes = [];
       
-      lpTag.sdes.push(
-        {
-          "type": "purchase", //MANDATORY
-          "total": 15, //TOTAL VALUE OF THE TRANSACTION AFTER DISCOUNT
-          "currency": "USD", //CURRENCY CODE
-          "orderId": "DRV1534XC", //UNIQUE ORDER ID OR RECEIPT ID
-          "cart":{
-              "products": [{
-                    "product": {
-                      "name": "Dune (BlueRay)", //PRODUCT NAME
-                      "category": "DVD", //PRODUCT CATEGORY NAME
-                      "sku": "xyz001", //PRODUCT SKU OR UNIQUE IDENTIFIER
-                      "price": 5 //SINGLE PRODUCT PRICE
-                    },
-              "quantity": 3 //QUANTITY OF THIS PRODUCT
-              }]
-            }
-        }
-      );
-      
-      lpTag.section = [document.querySelector(".title").innerHTML];
+      // Cart info
+      lpTag.sdes.push({
+        type: "purchase", //MANDATORY
+        total: 15, //TOTAL VALUE OF THE TRANSACTION AFTER DISCOUNT
+        currency: "USD", //CURRENCY CODE
+        orderId: "DRV1534XC", //UNIQUE ORDER ID OR RECEIPT ID
+        cart: {
+          products: [
+            {
+              product: {
+                name: "Dune (BlueRay)", //PRODUCT NAME
+                category: "DVD", //PRODUCT CATEGORY NAME
+                sku: "xyz001", //PRODUCT SKU OR UNIQUE IDENTIFIER
+                price: 5, //SINGLE PRODUCT PRICE
+              },
+              quantity: 3, //QUANTITY OF THIS PRODUCT
+            },
+          ],
+        },
+      });
+
+      // Site title
+      lpTag.sdes.push({
+        type: "mrktInfo", //MANDATORY
+        info: {
+          channel: "1", //ORIGINATING CHANNEL ENUM:
+          affiliate: "LP Brand authenticated", //AFFILIATE NAME
+          campaignId: "LP Brand Campaign", //EXTERNAL ORIGINATING CAMPAIGN
+        },
+      });
     </script>
 
   </body>
